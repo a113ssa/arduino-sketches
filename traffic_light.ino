@@ -10,13 +10,10 @@ int blinkCount = 5;
 int trafficLeds[3] = { RED, YELLOW, GREEN };
 
 void setup() {
-  pinMode(RED, OUTPUT);
-  pinMode(YELLOW, OUTPUT);
-  pinMode(GREEN, OUTPUT);
-
-  digitalWrite(RED, LOW);
-  digitalWrite(YELLOW, LOW);
-  digitalWrite(GREEN, LOW);
+  for (int i : trafficLeds) {
+    pinMode(i, OUTPUT);
+    digitalWrite(i, LOW);
+  }
 }
 
 void loop() {
