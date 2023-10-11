@@ -11,6 +11,6 @@
 - [Ultrasonic Sensor with LCD distance display code](ultrasonic_sensor.ino)
 
 Distance 7 cm  <br>
-<img src="ultrasonic_sensor (1).jpg" width="400" height="250" alt="dance cat demo gif"><br>
+<img src="ultrasonic_sensor (1).jpg" width="600" height="400"><br>
 Distance 4 cm
-<br><img src="ultrasonic_sensor (2).jpg" width="400" height="250" alt="lcd connection">
+<br><img src="ultrasonic_sensor (2).jpg" width="600" height="400">
