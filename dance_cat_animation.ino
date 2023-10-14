@@ -2,9 +2,7 @@
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-int column = 0;
 int textDelay = 500;
-int increaseStep = 3;
 
 String right = "( =^_^)=";
 String left = "=(^_^= )";
@@ -18,21 +16,11 @@ void setup() {
 }
 
 void loop() {
-  column = normalizeColumn(column);
   printCatEmoji(isRightSideImage);
   printNyaNya(isRightSideImage);
   delay(textDelay);
   lcd.clear();
-  column += increaseStep;
   isRightSideImage = toggleRightSideBool(isRightSideImage);
-}
-
-int normalizeColumn(int column) {
-  if (column > 16) {
-    return 0;
-  } else {
-    return column;
-  }
 }
 
 void printCatEmoji(bool isRightSideImage) {
