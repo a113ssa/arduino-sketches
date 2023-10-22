@@ -1,5 +1,3 @@
-#include <LiquidCrystal_I2C.h>
-
 int ledPin = 7;
 int microphoneDigitalPin = 53;
 int digitalState = 0;
