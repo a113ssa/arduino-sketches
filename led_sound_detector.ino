@@ -1,11 +1,9 @@
 int ledPin = 7;
 int microphoneDigitalPin = 53;
 int digitalState = 0;
+int ledDelay = 6000;
 
 void setup() {
-  lcd.init();
-  lcd.backlight();
-  lcd.clear();
   pinMode(ledPin, OUTPUT);
   pinMode(microphoneDigitalPin, INPUT);
 }
@@ -19,7 +17,7 @@ void microPhoneProcess() {
 
   if (digitalState == HIGH) {
     digitalWrite(ledPin, HIGH);
-    delay(6000);
+    delay(ledDelay);
   } else {
     digitalWrite(ledPin, LOW);
   }
