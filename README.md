@@ -14,3 +14,10 @@ Distance 7 cm  <br>
 <img src="ultrasonic_sensor (1).jpg" width="600" height="400"><br>
 Distance 4 cm
 <br><img src="ultrasonic_sensor (2).jpg" width="600" height="400">
+
+- [Water sensor with LCD sensor value display code](water_sensor.ino)
+
+Initial sensor  <br>
+<img src="water_sensor (1).jpg" width="600" height="300"><br>
+Sensor in water
+<br><img src="water_sensor (2).jpg" width="600" height="300">
