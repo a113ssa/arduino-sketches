@@ -21,3 +21,5 @@ Initial sensor  <br>
 <img src="water_sensor/water_sensor (1).jpg" width="600" height="300"><br>
 Sensor in water
 <br><img src="water_sensor/water_sensor (2).jpg" width="600" height="300">
+
+- [Servo that is controled by clap code](servo/servo.ino)
