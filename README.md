@@ -1,4 +1,4 @@
-# Learning Arduino
+# Arduino Sketches
 
 
 - [Clap controlled Servo [sketch]](servo/servo.ino)
