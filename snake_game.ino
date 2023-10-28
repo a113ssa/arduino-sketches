@@ -98,13 +98,18 @@ void detectSnakeMovement() {
       isRowChanged = false;
 
     } else if (decodedCode == button_6 && (isRight || isRight == NULL)) {
-      if (!isRowChanged) { snakePositionColumn += 1; }
+      if (!isRowChanged) {
+        snakePositionColumn += 1;
+        headPositionColumn = String(tale + head).length() + snakePositionColumn - 1;
+      } else {
+        headPositionColumn = String(tale).length() + snakePositionColumn - 1;
+      }
 
-      headPositionColumn = String(tale + head).length() + snakePositionColumn - 1;
       isRight = true;
       isRowChanged = false;
 
     } else if (decodedCode == button_8 && snakePositionRow == 0) {
+      if (isRight) { headPositionColumn = String(tale).length() + snakePositionColumn - 1; }
       snakePositionRow -= 1;
       isRight = NULL;
       isRowChanged = true;
@@ -124,6 +129,7 @@ void checkCollision() {
     targetPositionRow = setTargetRow();
     targetPositionColumn = setTargetColumn();
     tale += "O";
+    score += 1;
   }
 }
 
@@ -140,7 +146,7 @@ void printSnake() {
 String setSnakeHead() {
   if (isRowChanged) {
     if (snakePositionRow == 0) { return "^"; }
-    if (snakePositionRow == 1) { return "V"; }
+    if (snakePositionRow == 1) { return "v"; }
   }
 
   if (!isRowChanged) {
