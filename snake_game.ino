@@ -9,7 +9,9 @@ const String button_4 = "f708ff00";
 const String button_6 = "a55aff00";
 const String button_8 = "ad52ff00";
 
-String snake = "=";
+String tale = "O";
+String snake = "";
+String head = ">";
 String target = "+";
 uint8_t snakePositionRow = 0;
 uint8_t snakePositionColumn = 0;
@@ -30,6 +32,7 @@ uint8_t textDelay = 100;
 uint8_t score = 0;
 
 boolean isRight = true;
+boolean isRowChanged = false;
 
 void setup() {
   initLCD();
@@ -82,47 +85,72 @@ uint8_t normalizeColumn(uint8_t column) {
 void detectSnakeMovement() {
   if (IrReceiver.decode()) {
     String decodedCode = String(IrReceiver.decodedIRData.decodedRawData, HEX);
-    if (decodedCode == button_2) {
+    if (decodedCode == button_2 && snakePositionRow == 1) {
       snakePositionRow += 1;
-    } else if (decodedCode == button_4) {
-      snakePositionColumn -= 1;
-      headPositionColumn = snakePositionColumn;
-      if (isRight) {
-        toggleIsRight();
-      }
-    } else if (decodedCode == button_6) {
-      snakePositionColumn += 1;
-      headPositionColumn = snakeText().length() + snakePositionColumn + 1;
-      if (!isRight) {
-        toggleIsRight();
-      }
+      isRight = NULL;
+      isRowChanged = true;
 
-    } else if (decodedCode == button_8) {
+    } else if (decodedCode == button_4 && (!isRight || isRight == NULL)) {
+      if (!isRowChanged) { snakePositionColumn -= 1; }
+
+      headPositionColumn = snakePositionColumn;
+      isRight = false;
+      isRowChanged = false;
+
+    } else if (decodedCode == button_6 && (isRight || isRight == NULL)) {
+      if (!isRowChanged) { snakePositionColumn += 1; }
+
+      headPositionColumn = String(tale + head).length() + snakePositionColumn - 1;
+      isRight = true;
+      isRowChanged = false;
+
+    } else if (decodedCode == button_8 && snakePositionRow == 0) {
       snakePositionRow -= 1;
+      isRight = NULL;
+      isRowChanged = true;
     }
 
     normalizeSnakePositions();
     checkCollision();
     lcd.clear();
-    printToLCD(snakeText(), snakePositionRow, snakePositionColumn);
+    printSnake();
     printToLCD(target, targetPositionRow, targetPositionColumn);
     IrReceiver.resume();
   }
 }
 
-void toggleIsRight() {
-  isRight = !isRight;
-}
-
-
 void checkCollision() {
   if (snakePositionRow == targetPositionRow && headPositionColumn == targetPositionColumn) {
     targetPositionRow = setTargetRow();
     targetPositionColumn = setTargetColumn();
-    snake += "=";
+    tale += "O";
   }
 }
 
+void printSnake() {
+  if (isRowChanged) {
+    printToLCD(setSnakeHead(), snakePositionRow, headPositionColumn);
+    uint8_t taleRow = snakePositionRow == 0 ? 1 : 0;
+    printToLCD(tale, taleRow, snakePositionColumn);
+  } else {
+    printToLCD(snakeText(), snakePositionRow, snakePositionColumn);
+  }
+}
+
+String setSnakeHead() {
+  if (isRowChanged) {
+    if (snakePositionRow == 0) { return "^"; }
+    if (snakePositionRow == 1) { return "V"; }
+  }
+
+  if (!isRowChanged) {
+    if (isRight) { return ">"; }
+    if (!isRight) { return "<"; }
+  }
+}
+
+
 String snakeText() {
-  return (isRight) ? snake + ">" : "<" + snake;
+  head = setSnakeHead();
+  return (isRight == true) ? tale + head : head + tale;
 }
