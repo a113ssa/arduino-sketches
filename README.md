@@ -1,6 +1,6 @@
 # Arduino Sketches
 
-
+- [Remote and Ultrasonic sensor controlled servo](/servo/remote-and-ultrasonic-sensor-controlled-servo.ino)
 - [Clap controlled Servo [sketch]](servo/servo.ino)
 - [Remote controlled Servo [sketch]](servo/remote-controlled-servo.ino)
 
