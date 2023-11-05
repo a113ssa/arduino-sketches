@@ -1,6 +1,9 @@
 # Arduino Sketches
 
-- [Remote and Ultrasonic sensor controlled servo](/servo/remote-and-ultrasonic-sensor-controlled-servo.ino)
+- [Joystick controlled servo [sketch]](/servo/joystick-controlled-servo.ino)
+<img src="servo/joystick-controlled-servo.gif" width="400" height="250" alt="joystick controlled servo demo"/>
+
+- [Remote and Ultrasonic sensor controlled servo [sketch]](/servo/remote-and-ultrasonic-sensor-controlled-servo.ino)
 - [Clap controlled Servo [sketch]](servo/servo.ino)
 - [Remote controlled Servo [sketch]](servo/remote-controlled-servo.ino)
 
