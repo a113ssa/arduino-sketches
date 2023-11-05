@@ -81,9 +81,6 @@ void runServo(uint8_t distance) {
 
 void runByRemote() {
   if (IrReceiver.decode()) {
-    Serial.println("fjkfwjwkwj");
-    Serial.println(String(IrReceiver.decodedIRData.decodedRawData, HEX));
-    delay(100);
     if (String(IrReceiver.decodedIRData.decodedRawData, HEX) == "bb44ff00") {
       runForward(servo);
     } else if (String(IrReceiver.decodedIRData.decodedRawData, HEX) == "bf40ff00") {
