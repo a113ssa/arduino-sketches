@@ -4,6 +4,8 @@
 <img src="servo/joystick-controlled-servo.gif" width="400" height="250" alt="joystick controlled servo demo"/>
 
 - [Remote and Ultrasonic sensor controlled servo [sketch]](/servo/remote-and-ultrasonic-sensor-controlled-servo.ino)
+<img src="servo/remote-ultrasonic-servo.gif" width="400" height="250" alt="ultrasonic & remote controlled servo demo"/>
+
 - [Clap controlled Servo [sketch]](servo/servo.ino)
 - [Remote controlled Servo [sketch]](servo/remote-controlled-servo.ino)
 
